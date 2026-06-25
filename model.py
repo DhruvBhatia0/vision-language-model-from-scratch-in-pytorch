@@ -54,8 +54,15 @@ def linear_projection(x, weight, bias):
 
     return x @ weight.transpose(-2,-1) + bias
 
-# Step 4 - project_patches_to_embeddings (not yet solved)
-# TODO: implement
+# Step 4 - project_patches_to_embeddings
+import torch
+
+def project_patches_to_embeddings(flat_patches, patch_proj_weight, patch_proj_bias):
+    # flat_patches -> (B, num, pd)
+    # patch_proj_weight -> (embed_dim, pd)
+    # patch_proj_bias -> (B, num, embed_dim)
+
+    return linear_projection(flat_patches, patch_proj_weight, patch_proj_bias)
 
 # Step 5 - prepend_class_token (not yet solved)
 # TODO: implement
